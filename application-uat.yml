@@ -1,0 +1,86 @@
+#Port
+server:
+  port: '9092'
+
+#DMDS :: JasyptPasswordEncryption  - For MongoDB
+spring:
+  data:
+    mongodb:
+      auto-index-creation: 'true'
+      username: username
+      database: journaldb
+      password: password
+      port: '27017'
+      uri: mongodb+srv://vijayuidzephyr:HlWm5jvxpat3UBjU@cluster0.wfiuv5m.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0
+      host: localhost
+
+#CONFIG-SERVER Property
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/vj-sonawane/config-server-microservice
+          default-label: master
+
+#JavaMailSender
+  mail:
+    host: smtp.gmail.com
+    username: ${SPRING_MAIL_USERNAME}
+    password: ${SPRING_MAIL_PASSWORD}
+    port: '587'
+    properties:
+      mail:
+        smtp:
+          starttls:
+            enable: 'true'
+          auth: 'true'
+
+#Security  
+  security:
+    user:
+      name: user
+      password: f81203cc-7784-4203-b920-42989233ffb6
+
+#ApplicationName  
+ application:
+    name: CONFIG-SERVER
+    
+#DevTools  
+  devtools:
+    restart:
+      enabled: 'true'
+
+#DMDS :: JasyptPasswordEncryption  - For SQL
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/userregistration
+    username: root
+    password: ENC(4aev1KsnM4V0rym7xoVdWQ==)
+
+#EnableColouredLogging
+  output:
+      ansi:
+        enabled: always
+
+#LSFB
+  jpa:
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQLDialect
+    show-sql: 'true'
+    hibernate:
+      ddl-auto: update
+
+
+#logging :: packageLevelLogging
+logging:
+  level:
+    com:
+      dps:
+        usercrud: DEBUG
+
+#EnableLoggingLogInFile
+  file:
+    name: loggers.log
+
+  
